@@ -11,6 +11,7 @@ defmodule Pokeball.Pokemons.Pokemon do
           image_url: binary()
         }
 
+  @derive Jason.Encoder
   @enforce_keys [:id, :name, :price, :sku, :image_url]
   defstruct [:id, :name, :price, :sku, :image_url]
 end

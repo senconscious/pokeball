@@ -24,3 +24,7 @@ pokeball-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+result.json
+
+.DS_Store
