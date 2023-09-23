@@ -1,4 +1,8 @@
 defmodule Pokeball.Pagination.Page do
+  @moduledoc """
+    Provides page struct
+  """
+
   @type t :: %__MODULE__{
           page: integer(),
           page_size: integer(),

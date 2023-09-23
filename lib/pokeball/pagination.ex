@@ -1,4 +1,8 @@
 defmodule Pokeball.Pagination do
+  @moduledoc """
+    Provides functions to work with pagination
+  """
+
   alias Pokeball.Pagination.Page
 
   @pattern ~r/Showing ([0-9]+)–([0-9]+) of ([0-9]+) results/

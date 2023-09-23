@@ -1,4 +1,8 @@
 defmodule Pokeball.ScrapeMe do
+  @moduledoc """
+    Provides function to scrape scrape me website
+  """
+
   alias Pokeball.Pagination
   alias Pokeball.Pokemons
 
@@ -16,9 +20,8 @@ defmodule Pokeball.ScrapeMe do
   end
 
   def scrape_page(page) do
-    with {:ok, html_body} <- request_page(page),
-         {:ok, pokemons} <- Pokemons.parse_pokemons(html_body) do
-      {:ok, pokemons}
+    with {:ok, html_body} <- request_page(page) do
+      Pokemons.parse_pokemons(html_body)
     end
   end
 

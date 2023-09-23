@@ -1,4 +1,8 @@
 defmodule Pokeball.ScrapeMe.Client do
+  @moduledoc """
+    Provides http client for scrape me
+  """
+
   use HTTPoison.Base
 
   require Logger

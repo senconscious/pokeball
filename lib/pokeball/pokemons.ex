@@ -1,4 +1,8 @@
 defmodule Pokeball.Pokemons do
+  @moduledoc """
+    Provides functions to work with pokemons
+  """
+
   alias Pokeball.Pokemons.Pokemon
 
   require Logger
