@@ -15,6 +15,24 @@ defmodule Pokeball.ScrapeMe do
     end
   end
 
+  def scrape_page(page) do
+    with {:ok, html_body} <- request_page(page),
+         {:ok, pokemons} <- Pokemons.parse_pokemons(html_body) do
+      {:ok, pokemons}
+    end
+  end
+
+  defp request_page(page) do
+    case @client.get("/page/#{page}/") do
+      {:ok, %HTTPoison.Response{status_code: 200, body: html_body}} ->
+        {:ok, html_body}
+
+      {_, %HTTPoison.Response{status_code: status_code, body: body}} ->
+        Logger.error(body)
+        {:error, "Received status code: #{status_code}"}
+    end
+  end
+
   defp request_start_page do
     case @client.get("/") do
       {:ok, %HTTPoison.Response{status_code: 200, body: html_body}} ->
