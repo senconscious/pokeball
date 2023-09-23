@@ -1,5 +1,6 @@
 defmodule Pokeball.ScrapeMe do
   alias Pokeball.Pagination
+  alias Pokeball.Pokemons
 
   require Logger
 
@@ -8,12 +9,13 @@ defmodule Pokeball.ScrapeMe do
   def start_scrape do
     with {:ok, html_body} <- request_start_page(),
          pagination_elements <- Pagination.find_pagination(html_body),
-         {:ok, page} <- Pagination.parse_pagination(pagination_elements) do
-      {:ok, page}
+         {:ok, page} <- Pagination.parse_pagination(pagination_elements),
+         {:ok, pokemons} <- Pokemons.parse_pokemons(html_body) do
+      {:ok, page, pokemons}
     end
   end
 
-  def request_start_page do
+  defp request_start_page do
     case @client.get("/") do
       {:ok, %HTTPoison.Response{status_code: 200, body: html_body}} ->
         {:ok, html_body}
