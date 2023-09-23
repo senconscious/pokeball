@@ -1,21 +1,20 @@
 # Pokeball
 
-**TODO: Add description**
+**Pokemon Scrapper**
 
-## Installation
+## Up and running
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pokeball` to your list of dependencies in `mix.exs`:
+1. Start application
 
-```elixir
-def deps do
-  [
-    {:pokeball, "~> 0.1.0"}
-  ]
-end
+```sh
+iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/pokeball>.
+2. Start scrapper
+
+```elixir
+Pokeball.scrap_them_all
+```
+
+
 
